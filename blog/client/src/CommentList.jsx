@@ -1,25 +1,21 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
+/* eslint-disable react/prop-types */
+const CommentList = ({ comments }) => {
+  console.log(comments);
 
-const CommentList = ({ postId }) => {
-  const [comments, setComments] = useState([]);
+  const rendercomments = comments.map((comment) => {
+    let realComment;
 
-
-  const fetchComments = async () => {
-    const res = await axios.get(
-      `http://localhost:4001/posts/${postId}/comments`
-    );
-
-    setComments(res.data);
-  };
-
-  useEffect(() => {
-    fetchComments();
-  }, []);
-
-  const rendercomments = comments.map((comment) => (
-    <li key={comment.id}>{comment.comment}</li>
-  ));
+    if (comment.status === "approved") {
+      realComment = comment.comment;
+    }
+    if (comment.status === "pending") {
+      realComment = "Your comment is currently pending";
+    }
+    if (comment.status === "rejected") {
+      realComment = "This comment has been rejected";
+    }
+    return <li key={comment.id}>{realComment}</li>;
+  });
   return <ul className="px-4 text-gray-600">{rendercomments}</ul>;
 };
 

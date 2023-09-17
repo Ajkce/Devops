@@ -7,9 +7,10 @@ const PostList = () => {
   const [posts, setPosts] = useState({});
 
   const fetchPosts = async () => {
-    const res = await axios.get("http://localhost:4000/posts");
+    const res = await axios.get("http://localhost:4002/posts");
 
     setPosts(res.data);
+    console.log(res.data)
   };
 
   useEffect(() => {
@@ -22,7 +23,7 @@ const PostList = () => {
         <div className="card-body">
           <h3 className="font-bold ">{post.title}</h3>
         </div>
-        <CommentList postId={post.id}></CommentList>
+        <CommentList comments={post.comments}></CommentList>
         <CommentCreate postId={post.id}></CommentCreate>
       </div>
     );
