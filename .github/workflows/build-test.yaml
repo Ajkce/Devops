@@ -1,10 +1,9 @@
 name: Node.js CI
 
 on:
-  push:
-    branches: ["deploy"]
   pull_request:
-    branches: ["deploy"]
+    types: ["opened"]
+  workflow_dispatch:
 
 jobs:
   test:
