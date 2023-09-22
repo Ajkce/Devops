@@ -35,11 +35,12 @@ jobs:
         run: npm ci
       - name: Build Project
         run: npm run build
+      - name: List files
+        run: ls -l ${{ github.workspace }}
       - name: Publish Js Filename
         id: publish
         run: find build/assests/*.js -type f -execdir echo '::set-output name=script-file::{}' ';'
-      - name: List files
-        run: ls -l ${{ github.workspace }}
+
       - name: upload the Artifacts
         uses: actions/upload-artifact@v2
         with:
