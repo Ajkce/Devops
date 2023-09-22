@@ -39,7 +39,7 @@ jobs:
         run: ls -l ${{ github.workspace }}
       - name: Publish Js Filename
         id: publish
-        run: find build/assests/*.js -type f -execdir echo '::set-output name=script-file::{}' ';'
+        run: find build/static/js/main.*.js -type f -execdir echo '::set-output name=script-file::{}' ';'
 
       - name: upload the Artifacts
         uses: actions/upload-artifact@v2

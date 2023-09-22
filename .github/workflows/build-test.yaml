@@ -45,10 +45,10 @@ jobs:
         run: npm run build
       - name: List files
         run: ls -l ${{ github.workspace }}
-      - name: upload the Artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: dist-files
-          path: ${{ github.workspace }}
+      # - name: upload the Artifacts
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: dist-files
+      #     path: ${{ github.workspace }}
       - name: Deploy
         run: echo "Deploying"
