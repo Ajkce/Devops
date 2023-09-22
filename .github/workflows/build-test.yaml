@@ -47,7 +47,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: dist-files
-          path: ./build
+          path: package.json
 
       - name: Deploy
         run: echo "Deploying"
