@@ -37,7 +37,7 @@ jobs:
         run: npm run build
       - name: Publish Js Filename
         id: publish
-        run: find dist/assests/*.js -type f -execdir echo '::set-output name=script-file::{}' ';'
+        run: find build/assests/*.js -type f -execdir echo '::set-output name=script-file::{}' ';'
       - name: List files
         run: ls -l ${{ github.workspace }}
       - name: upload the Artifacts
