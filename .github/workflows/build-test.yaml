@@ -44,7 +44,7 @@ jobs:
       - name: Build Project
         run: npm run build
       - name: upload the Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
           name: dist-files
           path: ${{ github.workspace }}
