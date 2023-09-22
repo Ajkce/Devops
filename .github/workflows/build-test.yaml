@@ -9,8 +9,8 @@ on:
   push:
     branches:
       - "deploy"
-    paths-ignore:
-      - ".github/workflows/*"
+    # paths-ignore:
+    #   - ".github/workflows/*"
 
 # Jobs that needs to be performed
 jobs:
