@@ -1,27 +1,17 @@
-#THe name of the workflow
-name: Node.js CI
+name: "Getting build files "
 
-#Events that trigger the workflow
 on:
-  pull_request:
-    types: ["opened"]
-  workflow_dispatch:
   push:
     branches:
       - "deploy"
-    paths-ignore:
-      - ".github/workflows/*"
 
-# Jobs that needs to be performed
 jobs:
-# title of the job
   test:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
-      #Official actions that can be used
         uses: actions/checkout@v3
-      - name: Install all the dependencies
+      - name: Get Node js
         uses: actions/setup-node@v3
         with:
           node-version: 18
@@ -33,23 +23,21 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     steps:
-      - name: Get code
+      - name: "Get Code"
         uses: actions/checkout@v3
-      - name: Install node js
+      - name: Get Node js
         uses: actions/setup-node@v3
         with:
           node-version: 18
       - name: Install dependencies
-        run: npm install
+        run: npm ci
       - name: Build Project
         run: npm run build
-      - name: upload the Artifacts
+      - name: Upload Artifacts
         uses: actions/upload-artifact@v3
-        with:
-          name: dist-files
-          path: |
-            build
-            package.json
-
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy
         run: echo "Deploying"
