@@ -14,12 +14,12 @@ on:
 
 # Jobs that needs to be performed
 jobs:
-# title of the job
+  # title of the job
   test:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
-      #Official actions that can be used
+        #Official actions that can be used
         uses: actions/checkout@v3
       - name: Install all the dependencies
         uses: actions/setup-node@v3
@@ -47,9 +47,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: dist-files
-          path: |
-            build
-            package.json
+          path: dist
 
       - name: Deploy
         run: echo "Deploying"
