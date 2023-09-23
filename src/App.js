@@ -17,6 +17,7 @@ function App() {
         >
           learn react with this project and I am testing this
         </a>
+        <p>Checking if the caching is working or not</p>
       </header>
     </div>
   );
