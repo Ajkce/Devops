@@ -10,5 +10,5 @@ app.use(bodyParser.json());
 app.use(eventRoutes);
 
 app.listen(process.env.PORT, () => {
-  console.log("Testing");
+  console.log("Testing the username");
 });
