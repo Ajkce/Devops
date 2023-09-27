@@ -1,8 +1,0 @@
-services:
-  redis-server:
-    image: "redis"
-  node-app:
-    restart: always
-    build: .
-    ports:
-      - "4001:8081"
