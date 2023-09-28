@@ -8,4 +8,4 @@ before_install:
 
 script:
   - ls
-  - docker run -e CI=true ajayakce/devops npm run test
+  - docker run -e ajayakce/devops npm run test -- --coverage
