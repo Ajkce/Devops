@@ -3,8 +3,9 @@ sudo: required
 services:
   - docker
 
-before_install: 
-  - docker build -t ajayakce/devops -f Dockerfile.dev . 
+before_install:
+  - docker build -t ajayakce/devops -f Dockerfile.dev .
 
-script: 
+script:
+  - ls
   - docker run ajayakce/devops npm run test -- --coverage
