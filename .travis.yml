@@ -1,0 +1,10 @@
+sudo: required
+
+services:
+  - docker
+
+before_install: 
+  - docker build -t ajayakce/devops -f Dockerfile.dev . 
+
+script: 
+  - docker run ajayakce/devops npm run test -- --coverage
