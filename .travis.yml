@@ -8,4 +8,6 @@ before_install:
 
 script:
   - ls
+  - $TRAVIS_TEST_RESULT
   - docker run ajayakce/devops npm run test -- --coverage
+  - $TRAVIS_TEST_RESULT
